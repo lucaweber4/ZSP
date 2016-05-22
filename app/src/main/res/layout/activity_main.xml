@@ -35,8 +35,11 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Zählerstand:"
-            android:textSize="18dp" />
+            android:text="Strom"
+            android:textSize="18dp"
+            android:id="@+id/textView2"
+            android:layout_alignBottom="@+id/editText"
+            android:layout_alignParentStart="true" />
 
         <EditText
             android:layout_width="wrap_content"
@@ -48,9 +51,9 @@
             android:textIsSelectable="false"
             android:allowUndo="true"
             android:autoText="false"
+            android:inputType="number"
             android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:inputType="number" />
+            android:layout_centerHorizontal="true" />
 
         <Button
             style="?android:attr/buttonStyleSmall"
@@ -58,9 +61,9 @@
             android:layout_height="wrap_content"
             android:text="Ok!"
             android:id="@+id/button"
-            android:layout_alignBottom="@+id/editText"
             android:layout_toEndOf="@+id/editText"
-            android:onClick="buttonClicked" />
+            android:onClick="buttonClicked"
+            android:layout_above="@+id/editText2" />
 
         <Button
             android:layout_width="wrap_content"
@@ -68,9 +71,9 @@
             android:text="ZÄHLERSTAND ANZEIGEN"
             android:id="@+id/button2"
             android:onClick="anzeigen"
-            android:layout_marginTop="51dp"
-            android:layout_below="@+id/editText"
-            android:layout_alignParentStart="true" />
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginBottom="128dp" />
 
         <Button
             style="?android:attr/buttonStyleSmall"
@@ -81,6 +84,72 @@
             android:onClick="reset"
             android:layout_alignTop="@+id/button2"
             android:layout_alignEnd="@+id/button" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Wasser"
+            android:id="@+id/textView"
+            android:textSize="18dp"
+            android:layout_below="@+id/textView2"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="27dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Gas"
+            android:id="@+id/textView3"
+            android:textSize="18dp"
+            android:layout_marginTop="24dp"
+            android:layout_below="@+id/editText2"
+            android:layout_alignParentStart="true" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:id="@+id/editText2"
+            android:editable="false"
+            android:textSize="12dp"
+            android:textIsSelectable="false"
+            android:allowUndo="true"
+            android:autoText="false"
+            android:inputType="number"
+            android:layout_alignBottom="@+id/textView"
+            android:layout_alignStart="@+id/editText" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:id="@+id/editText3"
+            android:editable="false"
+            android:textSize="12dp"
+            android:textIsSelectable="false"
+            android:allowUndo="true"
+            android:autoText="false"
+            android:inputType="number"
+            android:layout_alignBottom="@+id/textView3"
+            android:layout_alignStart="@+id/editText2" />
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="OK!"
+            android:id="@+id/button5"
+            android:layout_above="@+id/editText3"
+            android:layout_alignStart="@+id/button" />
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="OK!"
+            android:id="@+id/button6"
+            android:layout_below="@+id/button5"
+            android:layout_alignStart="@+id/button5" />
 
     </RelativeLayout>
 

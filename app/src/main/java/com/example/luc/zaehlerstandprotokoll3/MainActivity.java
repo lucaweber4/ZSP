@@ -16,6 +16,10 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
 
     private EditText editText;
+    private SharedPreferences prefs;
+    int speicher = 0;
+    int eingegeben;
+    int userText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,20 +31,36 @@ public class MainActivity extends AppCompatActivity {
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view)
-            {
+            public void onClick(View view) {
                 Intent myIntent = new Intent(MainActivity.this, zweiteActivity.class);
                 MainActivity.this.startActivity(myIntent);
             }
         });
+
+        /*
+        editText = (EditText) findViewById(R.id.editText);
+        prefs = getSharedPreferences("StartActivityPrefs", MODE_PRIVATE );
+        String userText = prefs.getString("userText","");
+        editText.setText(userText);
+        */
+
+        prefs = getSharedPreferences("pref", MODE_PRIVATE);
+        userText = prefs.getInt("userText", 0);
+        speicher = userText;
     }
 
-    int speicher;
-    //EditText editText = (EditText) findViewById(R.id.editText);
+    public void onPause(){
+        super.onPause();
+        SharedPreferences.Editor editor = prefs.edit();
+        //editor.putString("userText", editText.getText().toString());
+        editor.putInt("userText",speicher);
+        editor.commit();
+    }
 
     public void buttonClicked(View view)
     {
-        int eingegeben = Integer.parseInt(((EditText) findViewById(R.id.editText)).getText().toString());
+        speicher = userText;
+        eingegeben = Integer.parseInt(((EditText) findViewById(R.id.editText)).getText().toString());
         //int i = Integer.valueOf(editText.getText().toString());
 
         if(eingegeben >= speicher)

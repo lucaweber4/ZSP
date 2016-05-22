@@ -15,6 +15,6 @@ public class zweiteActivity extends AppCompatActivity
 
     public void blub(View view)
     {
-        Toast.makeText(this, "blub", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Du hasch an  klonaen Pimml", Toast.LENGTH_SHORT).show();
     }
 }
